@@ -16,7 +16,7 @@ function setSeason() {
     let season = document.getElementById("season");
     let result = getTime();
 
-    season.textContent = `It's ${SEASONS[result]}`;
+    season.textContent = `It's ${SEASONS[result]}!`;
     document.title = `It's ${SEASONS[result]} in FH4!`;
     document.body.style.backgroundImage = `url(images/${result}.jpg)`;
 }
