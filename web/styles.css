@@ -5,6 +5,8 @@
 }
 
 body {
+    background: #E4704B;
+    background: linear-gradient(to right, #E4704B 0%, #CA347E 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,4 +54,20 @@ body {
     bottom: 0;
     max-width: 5%;
     max-height: 5%;
+}
+
+@media screen and (width <= 950px) and (orientation: portrait){
+    body {
+        background-position: bottom right -200px;
+    }
+    #content {
+        height: 40%;
+        width: 40%;
+    }
+    #season {
+        font-size: 7vw;
+    }
+    #when {
+        font-size: 4vw;
+    }
 }

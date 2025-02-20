@@ -1,48 +1,24 @@
 function getTime() {
-    let baseDate = new Date("2025-02-13"); // dia base
+    const BASEDATE = new Date(Date.UTC(2025, 1, 13, 14, 30)); // 2025-02-13 14:30 en UTC, los meses en UTC empiezan en cero!!!
     let now = new Date();
-    let timeDifference = Math.floor((now.getTime() - baseDate.getTime()) / 60 / 60 / 24 / 1000);
-    let eachWeek = Math.floor(timeDifference / 7);
-    let result = eachWeek % 4;
+    let utcTimestamp = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 
+    now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds()); // el UTC de la hora actual
 
-    return {result, now};
+    let timeDifference = Math.floor((utcTimestamp - BASEDATE.getTime()) / 60 / 1000);
+    let eachWeek = Math.floor(timeDifference / 10080); // 7 dias en minutos
+
+    let result = eachWeek % 4;
+    return result;
 }
 
 function setSeason() {
+    const SEASONS = {0:"autumn", 1:"winter", 2:"spring", 3:"summer"};
     let season = document.getElementById("season");
-    let {result, now} = getTime();
-    
-    let weekDay = now.getUTCDay();
-    let nowHour = now.getUTCHours();
-    let nowMinutes = now.getUTCMinutes();
-    let nowHourMinutes = nowHour * 60 + nowMinutes;
+    let result = getTime();
 
-    // 870 minutos son las 14:30
-    if ((nowHourMinutes >= 870) && (weekDay == 4)) {
-        result++;
-        result = result % 4;
-    }
-
-    switch (result) {
-        case 0:
-            season.textContent = "It's autumn!";
-            document.title = "It's autumn in FH4!"
-            break;
-        case 1:
-            season.textContent = "It's winter!";
-            document.title = "It's winter in FH4!"
-            break;
-        case 2:
-            season.textContent = "It's spring!";
-            document.title = "It's spring in FH4!"
-            break;
-        case 3:
-            season.textContent = "It's summer!";
-            document.title = "It's summer in FH4!"
-            break;
-    }
-
-    document.body.style.backgroundImage = `url(images/${result}.jpg)` 
+    season.textContent = `It's ${SEASONS[result]}`;
+    document.title = `It's ${SEASONS[result]} in FH4!`;
+    document.body.style.backgroundImage = `url(images/${result}.jpg)`;
 }
 
 setSeason();
