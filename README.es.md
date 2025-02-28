@@ -5,11 +5,17 @@
 
 - [Acerca de este repositorio](#Acerca-de-este-repositorio)
 - [Fuentes](#Fuentes)
+- [Notas](#Notas)
 
 ## Acerca de este repositorio
 
-Seguimiento de estaciones para **Forza Horizon 4**.
+Seguimiento de estaciones para **Forza Horizon 4**. [Enlace a la web](https://ian-ani.github.io/fh4-season-tracker/).
 
 ## Fuentes
 
 Arte de [Scott Huntsman](https://scotthuntsman.artstation.com/projects/xzDz1r).
+
+## Notas
+
+- Si usas DarkReader, es posible que la imagen de fondo no se muestre.
+- Si tienes desactivado JavaScript en tu navegador la web no funcionará correctamente.
